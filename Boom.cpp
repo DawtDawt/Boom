@@ -10,7 +10,7 @@ int main()
 	Engine engine;
 	engine.initialize((char*) "Boom!");
 
-	Sprite testSprite = Sprite("Assets/Art/Plane.png", 200, 200);
+	Sprite testSprite = Sprite("Assets/Art/Plane.png", 150, 150);
 
 	while (true)
 	{
