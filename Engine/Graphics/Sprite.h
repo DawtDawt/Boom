@@ -18,6 +18,8 @@ public:
 
 	void update();
 	void render();
+
+	void setPos(float x, float y);
 private:
 	Texture texture;
 	float xPos;

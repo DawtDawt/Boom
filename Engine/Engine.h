@@ -2,6 +2,7 @@
 #define BOOM_ENGINE
 
 #include "GLFW/glfw3.h"
+#include "IO/Mouse.h"
 #pragma comment(lib, "opengl32.lib")
 
 #include <iostream>

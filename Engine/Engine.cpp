@@ -35,6 +35,10 @@ bool Engine::initialize(char* windowTitle)
 	glfwGetFramebufferSize(window, &width, &height);
 	glfwSwapInterval(1);
 
+	// set cursor position/button callback
+	glfwSetCursorPosCallback(window, Mouse::mousePosCallback);
+	glfwSetMouseButtonCallback(window, Mouse::mouseButtonCallback);
+
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	int xPos = (mode->width - SCREEN_WIDTH) / 2;
 	int yPos = (mode->height - SCREEN_HEIGHT) / 2;

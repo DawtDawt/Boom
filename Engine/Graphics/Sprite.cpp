@@ -50,3 +50,9 @@ void Sprite::render()
 
 	glDisable(GL_TEXTURE_2D);
 }
+
+void Sprite::setPos(float x, float y)
+{
+	xPos = x;
+	yPos = y;
+}
