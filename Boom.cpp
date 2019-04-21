@@ -24,19 +24,19 @@ int main()
 		// testSprite.setPos((float)Mouse::getMouseX(), (float)Mouse::getMouseY());
 
 
-		if (Mouse::isButtonDown(GLFW_MOUSE_BUTTON_LEFT))
+		if (Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
 		{
-			testSprite.rotBy(10);
+			testSprite.rotBy(100);
 		}
 
-		if (Mouse::isButtonUp(GLFW_MOUSE_BUTTON_RIGHT))
+		if (Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
 		{
-			testSprite.rotBy(-10);
+			testSprite.rotBy(-100);
 		}
 		
 		if (Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_MIDDLE))
 		{
-			testSprite.rotBy(10);
+			
 		}
 		
 		if (Keyboard::isKeyPressed(GLFW_KEY_W))

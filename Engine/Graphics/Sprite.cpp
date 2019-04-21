@@ -3,7 +3,7 @@
 
 Sprite::Sprite()
 {
-	speed = 1;
+	speed = 100;
 	xPos = 0;
 	yPos = 0;
 	rot = 0;
@@ -14,7 +14,7 @@ Sprite::Sprite()
 
 Sprite::Sprite(string imagePath)
 {
-	speed = 1;
+	speed = 100;
 	xPos = 0;
 	yPos = 0;
 	rot = 0;
@@ -25,7 +25,7 @@ Sprite::Sprite(string imagePath)
 
 Sprite::Sprite(string imagePath, float _xPos, float _yPos)
 {
-	speed = 1;
+	speed = 100;
 	xPos = _xPos;
 	yPos = _yPos;
 	rot = 0;
