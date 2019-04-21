@@ -3,6 +3,7 @@
 
 #include "GLFW/glfw3.h"
 #include "IO/Mouse.h"
+#include "IO/Keyboard.h"
 #pragma comment(lib, "opengl32.lib")
 
 #include <iostream>
@@ -23,8 +24,13 @@ public:
 	void update();
 	void beginRender();
 	void endRender();
+
+	static double getDt();
 private:
 	static GLFWwindow* window;
+
+	static double dt;
+	double lastFrameTime;
 };
 
 #endif

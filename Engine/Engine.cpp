@@ -3,6 +3,7 @@
 int Engine::SCREEN_WIDTH = 1024;
 int Engine::SCREEN_HEIGHT = 768;
 GLFWwindow* Engine::window = NULL;
+double Engine::dt = 0;
 
 Engine::Engine()
 {
@@ -39,6 +40,9 @@ bool Engine::initialize(char* windowTitle)
 	glfwSetCursorPosCallback(window, Mouse::mousePosCallback);
 	glfwSetMouseButtonCallback(window, Mouse::mouseButtonCallback);
 
+	// set keyboard callback
+	glfwSetKeyCallback(window, Keyboard::keyCallback);
+
 	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	int xPos = (mode->width - SCREEN_WIDTH) / 2;
 	int yPos = (mode->height - SCREEN_HEIGHT) / 2;
@@ -58,11 +62,17 @@ bool Engine::initialize(char* windowTitle)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	// init lastFrameTime
+	lastFrameTime = glfwGetTime();
+
 	return true;
 }
 
 void Engine::update()
 {
+	double now = glfwGetTime();
+	dt = now - lastFrameTime;
+	lastFrameTime = now; 
 	glfwPollEvents();
 }
 
@@ -75,4 +85,9 @@ void Engine::beginRender()
 void Engine::endRender()
 {
 	glfwSwapBuffers(window);
+}
+
+double Engine::getDt()
+{
+	return dt;
 }
