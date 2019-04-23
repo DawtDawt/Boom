@@ -159,6 +159,7 @@
     <ClCompile Include="Engine\IO\Mouse.cpp" />
     <ClCompile Include="Engine\Math\Vector.cpp" />
     <ClCompile Include="Engine\Physics\RigidBody.cpp" />
+    <ClCompile Include="Game\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Engine.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Engine\IO\Mouse.h" />
     <ClInclude Include="Engine\Math\Vector.h" />
     <ClInclude Include="Engine\Physics\RigidBody.h" />
+    <ClInclude Include="Game\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

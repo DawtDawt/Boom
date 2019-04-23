@@ -9,6 +9,7 @@ Sprite::Sprite()
 	rot = 0;
 	scale = Vector(1);
 	texture = Texture();
+	size = Vector(0);
 }
 
 Sprite::Sprite(string imagePath)
@@ -18,6 +19,7 @@ Sprite::Sprite(string imagePath)
 	rot = 0;
 	scale = Vector(1);
 	texture = Texture(imagePath);
+	size = Vector((float)texture.getWidth(), (float)texture.getHeight(), 1);
 }
 
 Sprite::Sprite(string imagePath, Vector _pos)
@@ -27,6 +29,7 @@ Sprite::Sprite(string imagePath, Vector _pos)
 	rot = 0;
 	scale = Vector(1);
 	texture = Texture(imagePath);
+	size = Vector((float)texture.getWidth(), (float)texture.getHeight(), 1);
 }
 
 void Sprite::update()
@@ -49,13 +52,13 @@ void Sprite::render()
 	glColor4f(1, 1, 1, 1);
 	glBegin(GL_QUADS);
 	// bottom left
-	glTexCoord2f(0, 0);		glVertex2i(0, 0);
+	glTexCoord2f(0, 0);		glVertex2f(0, 0);
 	// bottom right
-	glTexCoord2f(1, 0);		glVertex2i(texture.getWidth(), 0);
+	glTexCoord2f(1, 0);		glVertex2f(size.x, 0);
 	// top right
-	glTexCoord2f(1, 1);		glVertex2i(texture.getWidth(), texture.getHeight());
+	glTexCoord2f(1, 1);		glVertex2f(size.x, size.y);
 	// top left
-	glTexCoord2f(0, 1);		glVertex2i(0, texture.getHeight());
+	glTexCoord2f(0, 1);		glVertex2f(0, size.y);
 	glEnd();
 
 	glDisable(GL_TEXTURE_2D);
@@ -120,4 +123,24 @@ void Sprite::setScale(float x)
 void Sprite::setScale(Vector _scale)
 {
 	scale = _scale;
+}
+
+Vector* Sprite::getPos()
+{
+	return &pos;
+}
+
+float* Sprite::getRot()
+{
+	return &rot;
+}
+
+Vector* Sprite::getScale()
+{
+	return &scale;
+}
+
+Vector* Sprite::getSize()
+{
+	return &size;
 }

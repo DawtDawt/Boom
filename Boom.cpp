@@ -3,6 +3,8 @@
 #include "Engine/IO/Mouse.h"
 #include "Engine/IO/Keyboard.h"
 
+#include "Game/Player.h"
+
 #include <iostream>
 
 int main()
@@ -16,22 +18,24 @@ int main()
 	testSprite.setScale(0.5f);
 	testSprite.setSpeed(300);
 
+	Player player(testSprite);
+
 	while (true)
 	{
 		engine.update();
-		testSprite.update();
+		player.update();
 
 		// testSprite.setPos((float)Mouse::getMouseX(), (float)Mouse::getMouseY());
 
 
 		if (Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_LEFT))
 		{
-			testSprite.rotBy(100);
+			player.getSprite().rotBy(100);
 		}
 
 		if (Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_RIGHT))
 		{
-			testSprite.rotBy(-100);
+			player.getSprite().rotBy(-100);
 		}
 		
 		if (Mouse::isButtonPressed(GLFW_MOUSE_BUTTON_MIDDLE))
@@ -41,26 +45,26 @@ int main()
 		
 		if (Keyboard::isKeyPressed(GLFW_KEY_W))
 		{
-			testSprite.moveUp();
+			player.getRigidBody().addForce(Vector(0, 20, 0));
 		}
 
 		if (Keyboard::isKeyPressed(GLFW_KEY_S))
 		{
-			testSprite.moveDown();
+			player.getRigidBody().addForce(Vector(0, -20, 0));
 		}
 
 		if (Keyboard::isKeyPressed(GLFW_KEY_A))
 		{
-			testSprite.moveLeft();
+			player.getRigidBody().addForce(Vector(-100, 0, 0));
 		}
 
 		if (Keyboard::isKeyPressed(GLFW_KEY_D))
 		{
-			testSprite.moveRight();
+			player.getRigidBody().addForce(Vector(100, 0, 0));
 		}
 		
 		engine.beginRender();
-		testSprite.render();
+		player.render();
 		engine.endRender();
 	}
 

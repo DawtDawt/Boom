@@ -30,12 +30,17 @@ public:
 	void moveDown();
 	void moveLeft();
 	void moveRight();
-
+		 
 	void rotTo(float x);
 	void rotBy(float x);
-
+		 
 	void setScale(float x);
 	void setScale(Vector _scale);
+
+	Vector* getPos();
+	float* getRot();
+	Vector* getScale();
+	Vector* getSize();
 private:
 	Texture texture;
 
@@ -43,6 +48,7 @@ private:
 	Vector pos;
 	float rot;
 	Vector scale;
+	Vector size;
 };
 
 #endif
