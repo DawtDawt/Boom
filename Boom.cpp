@@ -12,7 +12,7 @@ int main()
 	Engine engine;
 	engine.initialize((char*) "Boom!");
 
-	Sprite testSprite = Sprite("Assets/Art/Plane.png", 0, 0);
+	Sprite testSprite = Sprite("Assets/Art/Plane.png", Vector(100, 100, 0));
 	testSprite.setScale(0.5f);
 	testSprite.setSpeed(300);
 

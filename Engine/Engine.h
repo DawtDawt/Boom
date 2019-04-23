@@ -25,12 +25,12 @@ public:
 	void beginRender();
 	void endRender();
 
-	static double getDt();
+	static float getDt();
 private:
 	static GLFWwindow* window;
 
-	static double dt;
-	double lastFrameTime;
+	static float dt;
+	float lastFrameTime;
 };
 
 #endif

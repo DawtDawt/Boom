@@ -3,7 +3,7 @@
 
 #include "GLFW/glfw3.h"
 #include "Texture.h"
-#include "../Engine.h"
+#include "../Math/Vector.h"
 
 #include <iostream>
 #include <string>
@@ -15,7 +15,7 @@ class Sprite
 public:
 	Sprite();
 	Sprite(string imagePath);
-	Sprite(string imagePath, float _xPos, float _yPos);
+	Sprite(string imagePath, Vector _pos);
 
 	void update();
 	void render();
@@ -23,8 +23,8 @@ public:
 	void setSpeed(float x);
 	void changeSpeedBy(float x);
 
-	void moveTo(float x, float y);
-	void moveBy(float x, float y);
+	void moveTo(Vector _pos);
+	void moveBy(Vector _pos);
 
 	void moveUp();
 	void moveDown();
@@ -35,15 +35,14 @@ public:
 	void rotBy(float x);
 
 	void setScale(float x);
-	void setScale(float x, float y);
+	void setScale(Vector _scale);
 private:
 	Texture texture;
+
 	float speed;
-	float xPos;
-	float yPos;
+	Vector pos;
 	float rot;
-	float xScale;
-	float yScale;
+	Vector scale;
 };
 
 #endif
